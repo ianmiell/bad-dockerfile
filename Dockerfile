@@ -74,6 +74,16 @@ RUN curl -O http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.69/bin/apache-to
     rm -rf apache-tomcat-7.0.69 && \
     rm -f *.tar.gz
 
+# OpenJDK - Java (RPM install)
+#
+#
+RUN curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+    curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+    touch /var/lib/rpm/* && \
+    yum -y install java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+    rm -f *.rpm && \
+    echo "exclude=java-1.8.0-openjdk java-1.8.0-openjdk-headless"  >> /etc/yum.conf
+
 # tomcat - Java application (RPM install)
 #
 # CVE-2013-4590, CVE-2014-0119, CVE-2014-0099, CVE-2014-0096, CVE-2014-0075
