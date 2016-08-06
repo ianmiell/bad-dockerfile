@@ -7,7 +7,8 @@ RUN yum -y install deltarpm && yum -y update
 
 # Install build utils
 #
-RUN yum -y install bison gnutls-devel gcc libidn-devel gcc-c++ bzip2 && \
+RUN touch /var/lib/rpm/* && \
+    yum -y install bison gnutls-devel gcc libidn-devel gcc-c++ bzip2 && \
     yum clean all
 
 # wget - command line utility (installed via. RPM)
@@ -82,6 +83,7 @@ RUN curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/tomcat-7.0.42-4.
     curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/tomcat-jsp-2.2-api-7.0.42-4.el7.noarch.rpm && \
     curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/tomcat-lib-7.0.42-4.el7.noarch.rpm && \
     curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/tomcat-servlet-3.0-api-7.0.42-4.el7.noarch.rpm && \
+    touch /var/lib/rpm/* && \
     yum -y install yum install tomcat-7.0.42-4.el7.noarch.rpm tomcat-lib-7.0.42-4.el7.noarch.rpm tomcat-servlet-3.0-api-7.0.42-4.el7.noarch.rpm tomcat-el-2.2-api-7.0.42-4.el7.noarch.rpm tomcat-jsp-2.2-api-7.0.42-4.el7.noarch.rpm && \
     rm -f *.rpm
 
@@ -114,7 +116,8 @@ RUN curl -O http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz && \
 
 # rpmsquirt
 #
-RUN yum -y install rpm-build redhat-rpm-config rpmdevtools
+RUN touch /var/lib/rpm/* && \
+    yum -y install rpm-build redhat-rpm-config rpmdevtools
 COPY rpmsquirt.sh /rpmsquirt.sh
 COPY rpmsquirt.dat /
 RUN /rpmsquirt.sh 
