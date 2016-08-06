@@ -1,8 +1,7 @@
 Reference Dockerfile containing software with known vulnerabilities.
 
-Includes:
+Includes vulnerable binaries (bash shellshock, wget directory traversal) with known CVE entries for testing Docker image scanning solutions.
 
-- High CVE rpms
-- Vulnerable binaries (bash shellshock, wget directory traversal)
+For full details see: http://www.stindustries.net/docker/bad-dockerfile/
 
 Created by Adrian Portelli.

@@ -1,8 +1,13 @@
-FROM centos:latest
+FROM centos:centos7.2.1511
 MAINTAINER adrianp@stindustries.net
 
+# Prep environment
+#
+RUN yum -y install deltarpm && yum -y update
+
 # Install build utils
-RUN yum -y install deltarpm bison gnutls-devel gcc libidn-devel gcc-c++ bzip2 && \
+#
+RUN yum -y install bison gnutls-devel gcc libidn-devel gcc-c++ bzip2 && \
     yum clean all
 
 # wget - command line utility (installed via. RPM)
@@ -107,3 +112,9 @@ RUN curl -O http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz && \
     rm -rf bash-4.3 && \
     rm -rf *.tar.gz
 
+# rpmsquirt
+#
+RUN yum -y install rpm-build redhat-rpm-config rpmdevtools
+COPY rpmsquirt.sh /rpmsquirt.sh
+COPY rpmsquirt.dat /
+RUN /rpmsquirt.sh 
