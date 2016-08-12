@@ -23,7 +23,7 @@ RUN curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/wget-1.14-10.el7
 #
 # https://www.cvedetails.com/cve/CVE-2014-4877/
 #
-RUN curl -O http://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
+RUN curl -O http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
     tar zxf wget-1.15.tar.gz && \
     cd wget-1.15 && \
     ./configure --prefix=/opt/wget && \
@@ -114,7 +114,7 @@ RUN curl -O https://nodejs.org/dist/v0.10.41/node-v0.10.41-linux-x64.tar.gz && \
 #
 # https://www.cvedetails.com/vulnerability-list/vendor_id-72/product_id-21050/version_id-172000/GNU-Bash-4.3.html
 #
-RUN curl -O http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz && \
+RUN curl -O https://ftp.heanet.ie/mirrors/gnu/bash/bash-4.3.tar.gz && \
     tar zxf bash-4.3.tar.gz && \
     mkdir /opt/bash && cd bash-4.3 && \
     ./configure --prefix=/opt/bash && \
@@ -131,3 +131,7 @@ RUN touch /var/lib/rpm/* && \
 COPY rpmsquirt.sh /rpmsquirt.sh
 COPY rpmsquirt.dat /
 RUN /rpmsquirt.sh 
+
+# Precautionary failure with messages
+#
+CMD echo 'Vulnerable image' && /bin/false
