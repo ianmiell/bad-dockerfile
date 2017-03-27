@@ -77,12 +77,12 @@ RUN curl -O http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.69/bin/apache-to
 # OpenJDK - Java (RPM install)
 #
 #
-#RUN curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
-#    curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
-#    touch /var/lib/rpm/* && \
-#    yum -y install java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
-#    rm -f *.rpm && \
-#    echo "exclude=java-1.8.0-openjdk java-1.8.0-openjdk-headless"  >> /etc/yum.conf
+RUN curl -O ftp://mirror.switch.ch/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+    curl -O ftp://mirror.switch.ch/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+    touch /var/lib/rpm/* && \
+    yum -y install java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+    rm -f *.rpm && \
+    echo "exclude=java-1.8.0-openjdk java-1.8.0-openjdk-headless"  >> /etc/yum.conf
 
 # tomcat - Java application (RPM install)
 #
@@ -99,7 +99,7 @@ RUN curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/tomcat-7.0.42-4.
 
 # hpack-2.1.1 - Python lib
 #
-# CVE-2016-6581
+# https://www.cvedetails.com/cve/CVE-2016-6581/
 #
 RUN curl -O https://pypi.python.org/packages/8c/2b/e6e2f554368785c7eb68d618fd6457625be1535e807f6abf11c7db710f34/hpack-2.1.1.tar.gz && \
         tar xvf hpack-2.1.1.tar.gz && \
@@ -112,7 +112,7 @@ RUN curl -O https://pypi.python.org/packages/8c/2b/e6e2f554368785c7eb68d618fd645
 
 # commons-beanutils-1.8 - Jar file  
 #
-# CVE-2014-0114
+# https://www.cvedetails.com/cve/CVE-2014-0114/
 #
 RUN curl -O http://repo1.maven.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0-sources.jar
 
