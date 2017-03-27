@@ -77,12 +77,12 @@ RUN curl -O http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.69/bin/apache-to
 # OpenJDK - Java (RPM install)
 #
 #
-RUN curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
-    curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
-    touch /var/lib/rpm/* && \
-    yum -y install java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
-    rm -f *.rpm && \
-    echo "exclude=java-1.8.0-openjdk java-1.8.0-openjdk-headless"  >> /etc/yum.conf
+#RUN curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+#    curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+#    touch /var/lib/rpm/* && \
+#    yum -y install java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+#    rm -f *.rpm && \
+#    echo "exclude=java-1.8.0-openjdk java-1.8.0-openjdk-headless"  >> /etc/yum.conf
 
 # tomcat - Java application (RPM install)
 #
@@ -120,7 +120,7 @@ RUN curl -O http://repo1.maven.org/maven2/commons-beanutils/commons-beanutils/1.
 #
 # CVE-2015-3227, CVE-2015-3226	
 #
-RUN curl -o http://rubygems.org/downloads/activesupport-4.2.1.gem
+RUN curl -O http://rubygems.org/downloads/activesupport-4.2.1.gem
 
 # utils.js - Javascript file 
 #
