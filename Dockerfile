@@ -97,6 +97,29 @@ RUN curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/tomcat-7.0.42-4.
     yum -y install yum install tomcat-7.0.42-4.el7.noarch.rpm tomcat-lib-7.0.42-4.el7.noarch.rpm tomcat-servlet-3.0-api-7.0.42-4.el7.noarch.rpm tomcat-el-2.2-api-7.0.42-4.el7.noarch.rpm tomcat-jsp-2.2-api-7.0.42-4.el7.noarch.rpm && \
     rm -f *.rpm
 
+# namedown.py - Python file (.py extension)
+#
+# CVE-2016-2776
+#
+RUN curl -O http://raw.githubusercontent.com/infobyte/CVE-2016-2776/master/namedown.py
+
+# commons-beanutils-1.8 - Jar file  
+#
+# CVE-2014-0114
+#
+RUN curl -O http://repo1.maven.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0-sources.jar
+
+# activesupport 4.2.1 - GEM package (Ruby)
+#
+# CVE-2015-3227, CVE-2015-3226	
+#
+RUN curl -o http://rubygems.org/downloads/activesupport-4.2.1.gem
+
+# utils.js - Javascript file 
+#
+# CVE-2015-3227,CVE-2015-3226
+#
+COPY utils.js /tmp/utils.js
 # nodejs - Javascript (installed manually)
 #
 # https://www.cvedetails.com/vulnerability-list/vendor_id-12113/product_id-30764/version_id-192848/Nodejs-Node.js-0.10.41.html
