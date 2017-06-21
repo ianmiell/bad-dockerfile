@@ -23,7 +23,7 @@ RUN curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/wget-1.14-10.el7
 #
 # https://www.cvedetails.com/cve/CVE-2014-4877/
 #
-RUN curl -O http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
+RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
     tar zxf wget-1.15.tar.gz && \
     cd wget-1.15 && \
     ./configure --prefix=/opt/wget && \
@@ -77,8 +77,8 @@ RUN curl -O http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.69/bin/apache-to
 # OpenJDK - Java (RPM install)
 #
 #
-RUN curl -O ftp://mirror.switch.ch/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
-    curl -O ftp://mirror.switch.ch/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+RUN curl -O http://mirror.switch.ch/ftp/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+    curl -O http://mirror.switch.ch/ftp/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
     touch /var/lib/rpm/* && \
     yum -y install java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
     rm -f *.rpm && \
