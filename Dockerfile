@@ -23,7 +23,7 @@ RUN curl -O http://vault.centos.org/7.0.1406/os/x86_64/Packages/wget-1.14-10.el7
 #
 # https://www.cvedetails.com/cve/CVE-2014-4877/
 #
-RUN curl -O http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
+RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
     tar zxf wget-1.15.tar.gz && \
     cd wget-1.15 && \
     ./configure --prefix=/opt/wget && \
