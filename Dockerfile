@@ -189,3 +189,14 @@ RUN /rpmsquirt.sh
 # Precautionary failure with messages
 #
 CMD echo 'Vulnerable image' && /bin/false
+
+# Basic labels.
+# http://label-schema.org/
+#
+LABEL \
+    org.label-schema.name="bad-dockerfile" \
+    org.label-schema.description="Reference Dockerfile containing software with known vulnerabilities." \
+    org.label-schema.url="http://www.stindustries.net/docker/bad-dockerfile/" \
+    org.label-schema.vcs-type="Git" \
+    org.label-schema.vcs-url="https://github.com/ianmiell/bad-dockerfile" \
+    org.label-schema.docker.dockerfile="/Dockerfile"

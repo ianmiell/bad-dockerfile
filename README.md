@@ -15,6 +15,8 @@ Created by Adrian Portelli.
 
 Image available here: https://hub.docker.com/r/imiell/bad-dockerfile
 
+Upstream source code here: https://github.com/ianmiell/bad-dockerfile
+
 But note that it's insecure!
 
 
@@ -39,3 +41,19 @@ If your build host needs proxy settings to reach the Internet:
 
     # Replace ... with exotic curl options for your build environment.
     docker build -t imiell/bad-dockerfile --build-arg CURL_OPTIONS="..." ./
+
+
+View labels
+-----------
+
+Each built image has labels that generally follow http://label-schema.org/
+
+View a specific label, such as the image description:
+
+    docker inspect \
+      -f '{{ index .Config.Labels "org.label-schema.description" }}' \
+      imiell/bad-dockerfile
+
+Query all the labels inside a built image:
+
+    docker inspect imiell/bad-dockerfile | jq -M '.[].Config.Labels'
