@@ -15,8 +15,6 @@ Created by Adrian Portelli.
 
 Image available here: https://hub.docker.com/r/imiell/bad-dockerfile
 
-Upstream source code here: https://github.com/ianmiell/bad-dockerfile
-
 But note that it's insecure!
 
 
