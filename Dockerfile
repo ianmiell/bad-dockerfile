@@ -90,9 +90,9 @@ RUN curl -LO ${CURL_OPTIONS} \
 #
 #
 RUN curl -LO ${CURL_OPTIONS} \
-      http://mirror.switch.ch/ftp/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+      http://www.nic.funet.fi/pub/Linux/INSTALL/scientific/7.0/x86_64/updates/security/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
     curl -LO ${CURL_OPTIONS} \
-      http://mirror.switch.ch/ftp/pool/4/mirror/scientificlinux/7.0/x86_64/updates/security/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
+      http://www.nic.funet.fi/pub/Linux/INSTALL/scientific/7.0/x86_64/updates/security/java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
     touch /var/lib/rpm/* && \
     yum -y install java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64.rpm java-1.8.0-openjdk-headless-1.8.0.91-0.b14.el7_2.x86_64.rpm && \
     rm -f *.rpm && \
@@ -168,7 +168,7 @@ RUN curl -LO ${CURL_OPTIONS} \
 # https://www.cvedetails.com/vulnerability-list/vendor_id-72/product_id-21050/version_id-172000/GNU-Bash-4.3.html
 #
 RUN curl -LO ${CURL_OPTIONS} \
-      https://ftp.heanet.ie/mirrors/gnu/bash/bash-4.3.tar.gz && \
+      https://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/bash/bash-4.3.tar.gz && \
     tar zxf bash-4.3.tar.gz && \
     mkdir /opt/bash && cd bash-4.3 && \
     ./configure --prefix=/opt/bash && \
